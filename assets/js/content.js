@@ -1,13 +1,11 @@
 // Wait for document to load
 $(document).ready(function () {
-
+    // Get on/off toggle value for this feature
     chrome.storage.sync.get({
         enableSortByPopularity: true
     }, function (options) {
-
-        var isDisabled = !options.enableSortByPopularity;
-
-        if (isDisabled) {
+        // Check whether this feature is disabled
+        if (!options.enableSortByPopularity) {
             return;
         }
 
@@ -26,7 +24,7 @@ $(document).ready(function () {
             soldCount = parseInt(listing.find('.hotness-signal').text()) || 0;
 
             // Add item sold count and listing itself
-            results.push({sold: soldCount, listing: listing});
+            results.push({ sold: soldCount, listing: listing });
 
             // Delete element temporarily
             listing.remove();
@@ -48,8 +46,5 @@ $(document).ready(function () {
         results.forEach(function (item) {
             ul.append(item.listing);
         });
-
-
     });
-
 });
