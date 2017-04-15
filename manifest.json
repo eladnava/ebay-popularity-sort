@@ -8,6 +8,11 @@
         "48": "assets/img/icon48.png",
         "128": "assets/img/icon128.png"
     },
+    "browser_action": {
+        "default_icon": "assets/img/icon48.png",
+        "default_popup": "assets/views/browser-action.html",
+        "default_title": "eBay™ Popularity Sort"
+    },
     "content_scripts": [
         {
             "matches": [
@@ -20,5 +25,8 @@
                 "assets/js/content.js"
             ]
         }
+    ],
+    "permissions": [
+        "storage"
     ]
 }
