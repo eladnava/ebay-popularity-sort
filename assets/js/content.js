@@ -21,7 +21,7 @@ $(document).ready(function () {
             var soldCount = 0;
 
             // Get sold count as integer
-            soldCount = parseInt(listing.find('.hotness-signal').text()) || 0;
+            soldCount = parseInt(listing.find('.hotness-signal:contains(" sold")').text()) || 0;
 
             // Add item sold count and listing itself
             results.push({ sold: soldCount, listing: listing });
