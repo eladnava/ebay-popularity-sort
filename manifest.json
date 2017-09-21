@@ -16,9 +16,7 @@
     "content_scripts": [
         {
             "matches": [
-                "*://www.ebay.com/sch/*",
-                "*://www.ebay.de/sch/*",
-                "*://www.ebay.co.uk/sch/*"
+                "<all_urls>"
             ],
             "js": [
                 "assets/js/jquery.js",
