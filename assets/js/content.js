@@ -22,8 +22,16 @@ if (window.location.host.startsWith('www.ebay') && window.location.pathname.star
                 // Default listing sold count to 0
                 var soldCount = 0;
 
+                // Extract hotness text
+                var hotnessText = listing.find('.hotness-signal').text();
+
                 // Get sold count as integer
-                soldCount = parseInt(listing.find('.hotness-signal').text()) || 0;
+                soldCount = parseInt(hotnessText) || 0;
+
+                // Count indicates number of users watching this item and not number of times sold?
+                if (hotnessText.includes('watching')) {
+                    soldCount = 0;
+                }
 
                 // Add item sold count and listing itself
                 results.push({ sold: soldCount, listing: listing });
