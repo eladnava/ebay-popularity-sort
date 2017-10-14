@@ -33,6 +33,11 @@ if (window.location.host.startsWith('www.ebay') && window.location.pathname.star
                     soldCount = 0;
                 }
 
+                // Count indicates a percentage discount and not number of times sold?
+                if (hotnessText.includes('%')) {
+                    soldCount = 0;
+                }
+
                 // Add item sold count and listing itself
                 results.push({ sold: soldCount, listing: listing });
 
