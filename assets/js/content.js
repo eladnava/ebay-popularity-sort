@@ -15,7 +15,7 @@ if (window.location.host.startsWith('www.ebay') && window.location.pathname.star
             var results = [];
 
             // Traverse search results
-            $('li[listingid]').each(function () {
+            $('.s-item').each(function () {
                 // Convert to jQuery object
                 var listing = $(this);
 
@@ -23,7 +23,7 @@ if (window.location.host.startsWith('www.ebay') && window.location.pathname.star
                 var soldCount = 0;
 
                 // Extract hotness text
-                var hotnessText = listing.find('.hotness-signal').text();
+                var hotnessText = listing.find('.s-item__itemHotness').text().replace(/,/g, '');
 
                 // Get sold count as integer
                 soldCount = parseInt(hotnessText) || 0;
@@ -51,11 +51,10 @@ if (window.location.host.startsWith('www.ebay') && window.location.pathname.star
             });
 
             // Get search results parent list
-            var ul = $('ul#ListViewInner');
+            var ul = $('.srp-river-answer').first();
 
             // Warn the user about the modified result order
-            ul.append('<li>These search results have been modified by <b>eBay™ Popularity Sort</b>.</li>');
-            ul.append('<li><hr /></li>');
+            ul.append('<p>These search results have been modified by <b>eBay™ Popularity Sort</b>.</p>');
 
             // Re-add the sorted results
             results.forEach(function (item) {
