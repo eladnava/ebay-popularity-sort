@@ -15,7 +15,7 @@ if (window.location.host.startsWith('www.ebay') && window.location.pathname.star
             var results = [];
 
             // Traverse search results
-            $('.s-item').each(function () {
+            $('.s-item, .sresult').each(function () {
                 // Convert to jQuery object
                 var listing = $(this);
 
@@ -23,7 +23,7 @@ if (window.location.host.startsWith('www.ebay') && window.location.pathname.star
                 var soldCount = 0;
 
                 // Extract hotness text
-                var hotnessText = listing.find('.s-item__itemHotness').text().replace(/,/g, '');
+                var hotnessText = listing.find('.s-item__itemHotness, .hotness-signal').text().replace(/,/g, '');
 
                 // Get sold count as integer
                 soldCount = parseInt(hotnessText) || 0;
@@ -51,7 +51,7 @@ if (window.location.host.startsWith('www.ebay') && window.location.pathname.star
             });
 
             // Get search results parent list
-            var ul = $('.srp-river-answer').first();
+            var ul = $('.srp-river-answer, #ListViewInner').first();
 
             // Warn the user about the modified result order
             ul.append('<p>These search results have been modified by <b>eBay™ Popularity Sort</b>.</p>');
