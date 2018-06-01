@@ -15,7 +15,7 @@ if (window.location.host.startsWith('www.ebay') && window.location.pathname.star
             var results = [];
 
             // Traverse search results
-            $('.s-item, .sresult').each(function () {
+            $('ul.srp-results li.s-item, ul#ListViewInner li[listingid]').each(function () {
                 // Convert to jQuery object
                 var listing = $(this);
 
