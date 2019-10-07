@@ -23,7 +23,7 @@ if (window.location.host.startsWith('www.ebay') && window.location.pathname.star
                 var soldCount = 0;
 
                 // Extract hotness text
-                var hotnessText = listing.find('.s-item__itemHotness, .hotness-signal').text().replace(/,/g, '');
+                var hotnessText = listing.find('.s-item__itemHotness, .hotness-signal, .s-item__authorized-seller').text().replace(/,/g, '');
 
                 // Get sold count as integer
                 soldCount = parseInt(hotnessText) || 0;
