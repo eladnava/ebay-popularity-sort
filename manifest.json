@@ -1,8 +1,8 @@
 {
-    "name": "eBay™ Popularity Sort",
+    "name": "Popularity Sort for eBay",
     "description": "A chrome extension that sorts the eBay™ search results by popularity (number of times sold).",
     "manifest_version": 2,
-    "version": "1.0.6",
+    "version": "1.0.7",
     "icons": {
         "16": "assets/img/icon16.png",
         "48": "assets/img/icon48.png",
