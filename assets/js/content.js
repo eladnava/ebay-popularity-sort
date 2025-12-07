@@ -15,7 +15,7 @@ if (window.location.host.startsWith('www.ebay') && window.location.pathname.star
             var results = [];
 
             // Traverse search results
-            $('ul.srp-results li.s-item, ul#ListViewInner li[listingid]').each(function () {
+            $('ul.srp-results li.s-item, ul#ListViewInner li[listingid], ul.srp-results li[data-listingid]').each(function () {
                 // Convert to jQuery object
                 var listing = $(this);
 
@@ -23,7 +23,7 @@ if (window.location.host.startsWith('www.ebay') && window.location.pathname.star
                 var soldCount = 0;
 
                 // Extract hotness text
-                var hotnessText = listing.find('.s-item__itemHotness, .s-item__quantitySold, .hotness-signal, .s-item__authorized-seller').text().replace(/,/g, '');
+                var hotnessText = listing.find('.su-styled-text.primary.bold.large, .s-item__itemHotness, .s-item__quantitySold, .hotness-signal, .s-item__authorized-seller').text().replace(/,/g, '');
 
                 // Get sold count as integer
                 soldCount = parseInt(hotnessText) || 0;
